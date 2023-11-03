@@ -2,26 +2,157 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+:root{
+  --text-color-primary : rgb(28, 192, 88);
+  --text-color-secondary : rgb(100, 150, 49);
+  --background-color : rgb(130,255,255);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html, body, div{
+  scroll-behavior: smooth;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* Home */
+.homeContainer{
+  @apply h-auto w-full bg-[var(--background-color)];
+}
+
+/* Hero Section  */
+.heroSection{
+  @apply h-[100vh] w-full font-mono 
+  sm:text-center 
+  flex flex-col justify-center
+  ;
+} 
+
+.heroTitle{
+  @apply sm:text-8xl text-[var(--text-color-primary)] font-bold;
+}
+
+.heroSubtitle{
+  @apply sm:text-3xl text-[var(--text-color-secondary)];
+}
+
+/* Feature Section */
+.featureSection{
+  @apply h-[100vh] w-full flex flex-col
+  justify-center align-middle;
+}
+
+.featureRow{
+  @apply my-auto h-[80vh] flex flex-col sm:flex-row 
+  justify-center align-middle px-[10vw];
+}
+
+.featureText{
+  @apply sm:text-5xl text-[var(--text-color-primary)] text-center
+  flex flex-col justify-center align-middle px-[5vw] w-[50%] 
+  font-mono font-bold;
+}
+
+.featureGIFContainer{
+  @apply h-[80%] m-auto;
+}
+
+.featureGIF{
+  @apply h-[60vh] w-auto bg-black aspect-square;
+}
+
+/* Login Section */
+.loginSection{
+  @apply h-[100vh] w-full flex flex-col align-middle justify-center;
+}
+
+.signupInvite{
+  @apply h-[40vh] w-[50vw] mx-auto text-7xl text-center font-bold font-mono
+  text-[var(--text-color-primary)];
+}
+
+.entryButton{
+  @apply h-[10vh] w-[15vw] bg-white hover:bg-green-300 mx-auto text-xl rounded-lg 
+  text-black hover:text-white font-mono p-3 hover:p-2 hover:border-4 ; 
+}
+
+
+/* 
+  Task Screen
+*/
+.taskScreen{
+  @apply h-[100vh] w-full bg-[var(--background-color)];
+}
+
+.welcomeMessage{
+  @apply py-[4vh] px-[2vw] font-mono font-bold text-4xl text-center
+  text-[var(--text-color-primary)]; 
+}
+
+.tasksContainer{
+  @apply pb-4 h-[85vh] w-[95vw] mx-auto bg-red-300 border-solid 
+  border-4 border-black rounded-lg
+  flex flex-col justify-start;
+}
+
+.viewChoiceButtonRow{
+  @apply h-[10%] w-full flex flex-row justify-center align-middle;
+}
+
+.viewChoiceButton{
+  @apply w-[5vw] h-[75%] my-auto mx-2 text-xl font-mono rounded-lg
+  border-2 transition-all ease-in
+  bg-rose-100 hover:bg-red-500 
+  border-black hover:border-white 
+  text-black hover:text-white ;
+}
+
+.viewChoice{
+  @apply w-[10vw] h-[85%];
+}
+
+.tasks{
+  @apply w-[98%] h-[90%] bg-[var(--background-color)] mx-auto 
+  overflow-scroll border-2 border-black rounded-lg;
+}
+
+.boardLayout{
+  @apply px-2 h-[100%] flex flex-row justify-around ;
+}
+
+.todoCol, .inProgressCol, .doneCol{
+  @apply w-[32%] h-[95%]  rounded-lg my-auto
+  overflow-y-scroll;
+} 
+
+.colHeading{
+  @apply text-center text-lg font-extralight w-full border-black border-b-2;
+}
+
+.taskCard{
+  @apply w-[95%] h-[30%] bg-yellow-400 mx-auto rounded-lg
+  mt-4 flex flex-col py-2 px-2 justify-around
+  ;
+}
+
+.taskCardTopRow{
+  @apply w-full h-[35%] flex flex-row justify-start; 
+}
+
+.serialNo{
+  @apply text-lg mr-5 mx-2 font-extralight;
+}
+
+.taskTitle{
+  @apply font-mono text-xl font-thin text-ellipsis;
+}
+
+.addNewTaskButton{
+  @apply rounded-full w-[5vw] aspect-square bg-white
+  bottom-16 right-16 absolute shadow-xl;
+}
+
+.taskDescription{
+  @apply text-ellipsis;
+}
+
+.taskCardButtonRow{
+  @apply flex flex-row justify-around;
 }
