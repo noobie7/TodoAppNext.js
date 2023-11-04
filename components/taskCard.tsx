@@ -15,7 +15,7 @@ export default function TaskCard({task, shiftTask, removeTask, markTaskAsDone} :
             <p className = 'serialNo'>{task.id}</p>
             <p className = 'taskTitle'>{task.title}</p>
         </div>
-        <p className = 'taskDescription'>{task.description}</p>
+            <p className = 'taskDescription'>{task.description}</p>
         <div className = 'taskCardButtonRow'>
             {
                 (task.status === 'In Progress' || task.status === 'To Do' ) 

@@ -10,6 +10,7 @@
 
 html, body, div{
   scroll-behavior: smooth;
+  scrollbar-width: 0;
 }
 
 /* Home */
@@ -89,7 +90,7 @@ html, body, div{
 .tasksContainer{
   @apply pb-4 h-[85vh] w-[95vw] mx-auto bg-red-300 border-solid 
   border-4 border-black rounded-lg
-  flex flex-col justify-start;
+  flex flex-col justify-start relative;
 }
 
 .viewChoiceButtonRow{
@@ -110,7 +111,7 @@ html, body, div{
 
 .tasks{
   @apply w-[98%] h-[90%] bg-[var(--background-color)] mx-auto 
-  overflow-scroll border-2 border-black rounded-lg;
+  overflow-hidden border-2 border-black rounded-lg;
 }
 
 .boardLayout{
@@ -119,8 +120,12 @@ html, body, div{
 
 .todoCol, .inProgressCol, .doneCol{
   @apply w-[32%] h-[95%]  rounded-lg my-auto
-  overflow-y-scroll;
+  ;
 } 
+
+.listOfTasks{
+  @apply overflow-y-scroll h-full w-full;
+}
 
 .colHeading{
   @apply text-center text-lg font-extralight w-full border-black border-b-2;
@@ -128,7 +133,7 @@ html, body, div{
 
 .taskCard{
   @apply w-[95%] h-[30%] bg-yellow-400 mx-auto rounded-lg
-  mt-4 flex flex-col py-2 px-2 justify-around
+  mt-4 flex flex-col py-2 px-2 justify-around shadow-lg
   ;
 }
 
@@ -155,4 +160,70 @@ html, body, div{
 
 .taskCardButtonRow{
   @apply flex flex-row justify-around;
+}
+
+.formModalContainer{
+  @apply top-0 left-0 fixed h-[100vh] w-full bg-blue-500
+  flex flex-col justify-center items-center text-4xl font-mono;
+}
+
+.formBox{
+  @apply bg-white flex flex-row h-[60vh] w-[60vw] 
+  justify-evenly items-center text-2xl font-mono mt-10; 
+}
+
+.formInputField{
+  @apply flex flex-col ;
+}
+
+.formInputFieldsCol{
+  @apply h-[90%] w-[60%] flex flex-col justify-evenly; 
+}
+
+.formButtonsCol{
+  @apply h-[90%] w-[10%] flex flex-col justify-evenly py-[10vh];
+}
+
+
+.buttonHint{
+  @apply text-sm w-[10vw];
+}
+
+.statusInputRow{
+  @apply flex flex-row justify-evenly text-lg;
+}
+
+.listLayout{
+  @apply px-2 h-[100%] flex flex-col justify-start;
+}
+
+.listLabelRow{
+  @apply flex flex-row w-full h-[5vh] text-xl  border-b-black 
+  rounded-lg mb-4 items-center px-4;
+}
+
+.listItem{
+  @apply flex flex-row w-full h-[5vh] text-xl bg-red-300 
+  rounded-lg mb-4 items-center px-4;
+}
+
+.listSerialNo{
+  @apply w-[5%];
+}
+
+.listTaskTitle{
+  @apply w-[25%];
+}
+
+.listTaskDescription{
+  @apply w-[55%];
+}
+
+.listButtonRow{
+  @apply w-[15%] flex flex-row justify-start gap-12;
+}
+
+.filterDropDown{
+  @apply px-6 font-mono text-lg justify-start
+  absolute top-4;
 }
