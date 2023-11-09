@@ -3,75 +3,17 @@
 @tailwind utilities;
 
 :root{
-  --text-color-primary : rgb(28, 192, 88);
-  --text-color-secondary : rgb(100, 150, 49);
-  --background-color : rgb(130,255,255);
+  --text-color-primary : rgba(255, 255, 255, 1);
+  --text-color-secondary : rgba(20, 200, 200, 1);
+  --background-color : linear-gradient(to right bottom, rgb(27, 209, 61), rgb(0, 96, 250));
+  --glass-color-primary : linear-gradient(to right top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.4));
+  --glass-color-secondary : linear-gradient(to left top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.8));
+  --border-color : rgba(5, 5, 5, 0.4);
 }
 
-html, body, div{
+html, body, div, *{
   scroll-behavior: smooth;
   scrollbar-width: 0;
-}
-
-/* Home */
-.homeContainer{
-  @apply h-auto w-full bg-[var(--background-color)];
-}
-
-/* Hero Section  */
-.heroSection{
-  @apply h-[100vh] w-full font-mono 
-  sm:text-center 
-  flex flex-col justify-center
-  ;
-} 
-
-.heroTitle{
-  @apply sm:text-8xl text-[var(--text-color-primary)] font-bold;
-}
-
-.heroSubtitle{
-  @apply sm:text-3xl text-[var(--text-color-secondary)];
-}
-
-/* Feature Section */
-.featureSection{
-  @apply h-[100vh] w-full flex flex-col
-  justify-center align-middle;
-}
-
-.featureRow{
-  @apply my-auto h-[80vh] flex flex-col sm:flex-row 
-  justify-center align-middle px-[10vw];
-}
-
-.featureText{
-  @apply sm:text-5xl text-[var(--text-color-primary)] text-center
-  flex flex-col justify-center align-middle px-[5vw] w-[50%] 
-  font-mono font-bold;
-}
-
-.featureGIFContainer{
-  @apply h-[80%] m-auto;
-}
-
-.featureGIF{
-  @apply h-[60vh] w-auto bg-black aspect-square;
-}
-
-/* Login Section */
-.loginSection{
-  @apply h-[100vh] w-full flex flex-col align-middle justify-center;
-}
-
-.signupInvite{
-  @apply h-[40vh] w-[50vw] mx-auto text-7xl text-center font-bold font-mono
-  text-[var(--text-color-primary)];
-}
-
-.entryButton{
-  @apply h-[10vh] w-[15vw] bg-white hover:bg-green-300 mx-auto text-xl rounded-lg 
-  text-black hover:text-white font-mono p-3 hover:p-2 hover:border-4 ; 
 }
 
 
@@ -79,43 +21,49 @@ html, body, div{
   Task Screen
 */
 .taskScreen{
-  @apply h-[100vh] w-full bg-[var(--background-color)];
+  @apply h-[100vh] w-full;
+  background-image: var(--background-color);
 }
 
 .welcomeMessage{
-  @apply py-[4vh] px-[2vw] font-mono font-bold text-4xl text-center
-  text-[var(--text-color-primary)]; 
+  @apply py-[2vh]  px-[5vw] h-auto 
+  font-mono text-2xl md:text-2xl lg:text-2xl
+  text-center text-[var(--text-color-primary)]; 
 }
 
 .tasksContainer{
-  @apply pb-4 h-[85vh] w-[95vw] mx-auto bg-red-300 border-solid 
-  border-4 border-black rounded-lg
+  @apply pb-4 h-[85vh] sm:h-[90vh] w-[90vw] mx-auto bg-transparent border-solid 
+  border-4 border-[var(--border-color)] rounded-lg
   flex flex-col justify-start relative;
+  background-image : var(--glass-color-primary);
 }
 
 .viewChoiceButtonRow{
-  @apply h-[10%] w-full flex flex-row justify-center align-middle;
+  @apply h-[10%] w-full flex flex-row px-4
+  justify-end xl:justify-center md:align-middle;
 }
 
 .viewChoiceButton{
-  @apply w-[5vw] h-[75%] my-auto mx-2 text-xl font-mono rounded-lg
-  border-2 transition-all ease-in
-  bg-rose-100 hover:bg-red-500 
-  border-black hover:border-white 
-  text-black hover:text-white ;
+  @apply w-auto xl:w-[5vw] h-[75%] my-auto mx-2 px-2 text-sm xl:text-base 
+  font-mono rounded-lg border-2 transition-all ease-in
+  bg-transparent hover:bg-indigo-500
+  shadow-sm hover:shadow-2xl
+  border-[var(--border-color)] hover:border-white 
+  text-[var(--text-color-primary)] hover:text-white;
 }
 
 .viewChoice{
-  @apply w-[10vw] h-[85%];
+  @apply w-[17vw] sm:w-[10vw] h-[85%];
 }
 
 .tasks{
   @apply w-[98%] h-[90%] bg-[var(--background-color)] mx-auto 
-  overflow-hidden border-2 border-black rounded-lg;
+  overflow-hidden mt-4;
 }
 
 .boardLayout{
-  @apply px-2 h-[100%] flex flex-row justify-around ;
+  @apply px-2 h-[100%] flex flex-row justify-around
+  text-[var(--text-color-primary)] ;
 }
 
 .todoCol, .inProgressCol, .doneCol{
@@ -128,17 +76,18 @@ html, body, div{
 }
 
 .colHeading{
-  @apply text-center text-lg font-extralight w-full border-black border-b-2;
+  @apply text-center text-lg w-full border-[var(--border-color)] border-b-2;
 }
 
 .taskCard{
-  @apply w-[95%] h-[30%] bg-yellow-400 mx-auto rounded-lg
-  mt-4 flex flex-col py-2 px-2 justify-around shadow-lg
-  ;
+  @apply w-[95%] h-[15%] md:h-[20%] xl:h-[30%] mx-auto rounded-lg text-blue-500
+  mt-4 flex flex-col py-2 px-4 justify-around shadow-sm hover:shadow-lg z-40
+  transition-all ease-in text-clip;
+  background-image : var(--glass-color-secondary);
 }
 
 .taskCardTopRow{
-  @apply w-full h-[35%] flex flex-row justify-start; 
+  @apply w-full h-[20%] flex flex-row justify-start; 
 }
 
 .serialNo{
@@ -146,16 +95,16 @@ html, body, div{
 }
 
 .taskTitle{
-  @apply font-mono text-xl font-thin text-ellipsis;
+  @apply font-mono text-sm md:text-xl font-thin whitespace-nowrap overflow-hidden text-ellipsis;
 }
 
 .addNewTaskButton{
-  @apply rounded-full w-[5vw] aspect-square bg-white
-  bottom-16 right-16 absolute shadow-xl;
+  @apply rounded-full absolute w-[60px] md:w-[75px] aspect-square bg-white
+  bottom-20 right-20 md:right-24 shadow-sm hover:shadow-2xl;
 }
 
 .taskDescription{
-  @apply text-ellipsis;
+  @apply text-xs md:text-sm whitespace-nowrap overflow-hidden text-ellipsis;
 }
 
 .taskCardButtonRow{
@@ -163,13 +112,18 @@ html, body, div{
 }
 
 .formModalContainer{
-  @apply top-0 left-0 fixed h-[100vh] w-full bg-blue-500
-  flex flex-col justify-center items-center text-4xl font-mono;
+  @apply top-0 left-0 fixed h-[100vh] w-full
+  flex flex-col justify-center items-center  text-lg sm:text-2xl xl:text-4xl font-mono;
+  backdrop-filter : blur(10px);
+}
+
+.formMessage{
+  @apply text-white;
 }
 
 .formBox{
   @apply bg-white flex flex-row h-[60vh] w-[60vw] 
-  justify-evenly items-center text-2xl font-mono mt-10; 
+  justify-evenly items-center text-base md:text-xl xl:text-2xl font-mono mt-10; 
 }
 
 .formInputField{
@@ -184,46 +138,72 @@ html, body, div{
   @apply h-[90%] w-[10%] flex flex-col justify-evenly py-[10vh];
 }
 
-
 .buttonHint{
   @apply text-sm w-[10vw];
 }
 
 .statusInputRow{
-  @apply flex flex-row justify-evenly text-lg;
+  @apply flex flex-row justify-evenly text-base md:text-xl xl:text-2xl;
+}
+
+.statusRadioButton{
+  @apply text-base md:text-xl xl:text-2xl font-extralight;
 }
 
 .listLayout{
-  @apply px-2 h-[100%] flex flex-col justify-start;
+  @apply px-2 h-[100%] flex flex-col justify-start 
+  text-[var(--text-color-primary)] font-mono overflow-scroll;
 }
 
 .listLabelRow{
-  @apply flex flex-row w-full h-[5vh] text-xl  border-b-black 
+  @apply flex flex-row w-full h-[5vh] text-sm sm:text-xl  border-b-black 
   rounded-lg mb-4 items-center px-4;
 }
 
 .listItem{
-  @apply flex flex-row w-full h-[5vh] text-xl bg-red-300 
-  rounded-lg mb-4 items-center px-4;
+  @apply flex flex-row h-[5vh] text-sm sm:text-xl gap-4
+  rounded-lg mb-4 items-center px-4 text-blue-500 font-extralight;
+  background-image : var(--glass-color-secondary);
 }
 
 .listSerialNo{
-  @apply w-[5%];
+  @apply w-[10%] sm:w-[5%];
 }
 
 .listTaskTitle{
-  @apply w-[25%];
+  @apply w-[25%] whitespace-nowrap overflow-hidden text-ellipsis;
+
 }
 
 .listTaskDescription{
-  @apply w-[55%];
+  @apply w-[55%] whitespace-nowrap overflow-hidden text-ellipsis;
+
 }
 
 .listButtonRow{
-  @apply w-[15%] flex flex-row justify-start gap-12;
+  @apply w-[15%] flex flex-row justify-start gap-2 sm:gap-6 xl:gap-10;
 }
 
 .filterDropDown{
-  @apply px-6 font-mono text-lg justify-start
-  absolute top-4;
+  @apply flex sm:flex-row flex-col
+  sm:px-6 font-mono text-xs sm:text-lg justify-start
+  absolute top-8 left-4 sm:top-4  text-[var(--text-color-primary)];
+}
+
+.addItemMessageContainer{
+  @apply h-full w-full flex flex-row justify-center
+  items-center;
+}
+
+.addItemMessage{
+  @apply font-mono text-4xl text-center text-[var(--text-color-primary)];
+}
+
+.errorMessage{
+  @apply text-sm text-red-400;
+  
+}
+
+.statusDropDownFilter{
+  @apply bg-transparent text-center active:shadow-2xl active:border-none;
 }

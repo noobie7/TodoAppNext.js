@@ -20,17 +20,17 @@ export default function TaskCard({task, shiftTask, removeTask, markTaskAsDone} :
             {
                 (task.status === 'In Progress' || task.status === 'To Do' ) 
                 && 
-                <button onClick = {(e) => markTaskAsDone(e, task.id)}>✅</button>
+                <button className = 'taskCardActionButton' onClick = {(e) => markTaskAsDone(e, task.id)}>✅</button>
             }
             {
                 (task.status === 'In Progress' || task.status === 'To Do' || task.status === 'Done') 
                 && 
-                <button onClick = {(e) => removeTask(e, task.id)}>❎</button>
+                <button className = 'taskCardActionButton' onClick = {(e) => removeTask(e, task.id)}>❎</button>
             }
             {
                 (task.status === 'To Do' ) 
                 &&
-                <button onClick={(e) => shiftTask(e, task.id)}>➡️</button>
+                <button className = 'taskCardActionButton' onClick={(e) => shiftTask(e, task.id)}>➡️</button>
             }
         </div>
     </div>
